@@ -1,0 +1,5 @@
+<mat-card *ngFor="let treninger of trening">
+    <div class="shade"></div>
+    <button mat-button (Click)="openDialog()">Open</button>
+    <img mat-card-image src={{treninger.img}}>
+</mat-card>
