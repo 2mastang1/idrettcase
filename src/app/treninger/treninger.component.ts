@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component,} from '@angular/core';
 import { MatDialog,} from '@angular/material/dialog';
 import { TreningerInfoComponent } from '../treninger-info/treninger-info.component';
 
@@ -19,9 +19,11 @@ export class TreningerComponent {
 
   constructor(private dialog: MatDialog) { }
 
-  openDialog() {
-    this.dialog.open(TreningerInfoComponent);
-  };
+openDialog() {
+  this.dialog.open(TreningerInfoComponent, {
+    data: this.trening
+  })
+}
 
     
   
