@@ -4,12 +4,14 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
+    <!--nedenfor er listen over interne linker til diverse sider-->
     <mat-nav-list>
       <a mat-list-item routerLink="treninger">Treninger</a>
       <a mat-list-item href="#">Kamper</a>
       <a mat-list-item href="#">Poengtavle</a>
     </mat-nav-list>
   </mat-sidenav>
+  <!--her kaller jeg på funksjonen som åpner menyen når du er på mobil-->
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
@@ -22,6 +24,7 @@
       </button>
       <span>idrettcase</span>
     </mat-toolbar>
+    <!--router-outlet er der de interne linkene blir lastet inn-->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

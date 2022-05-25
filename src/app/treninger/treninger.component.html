@@ -1,3 +1,5 @@
+<!--ngFor itererer over listen treninger og pakker objektene ut i variabelen trening.
+    for hver iterasjon lager ngFor et mat-card med dataen lagret i trening variabelen-->
 <mat-card *ngFor="let treninger of trening">
     <div class="shade" (click)="openDialog()"></div>
     <img mat-card-image src={{treninger.img}}>
