@@ -9,7 +9,8 @@ import { TreningerInfoComponent } from './treninger-info/treninger-info.componen
 })
 export class AppComponent {
   title = 'idrettcase';
-
+//her oppretter jeg en variabel med verdien av en komponent
+// og bruker den til å definere hva som skal åpne inne i dialog boksen
   constructor(private dialog: MatDialog) {}
 
   openDialog() {
