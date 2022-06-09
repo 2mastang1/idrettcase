@@ -2,13 +2,6 @@ import { Component, ElementRef, ViewChild,} from '@angular/core';
 import { MatDialog,} from '@angular/material/dialog';
 import { TreningerInfoComponent } from '../treninger-info/treninger-info.component';
 
-interface trening {
-  id:number;
-  hvor:string;
-  info:string;
-  img:string;
-}
-
 @Component({
   selector: 'app-treninger',
   templateUrl: './treninger.component.html',
@@ -18,7 +11,6 @@ interface trening {
 export class TreningerComponent {
 
   username: string = "";
-  myusername: string = "";
   treningappend: object = {};
 //her er listen over objekt som jeg bruker til å iterere over
   trening:{id: number, hvor: string, info: string, img: string}[] = [
@@ -27,11 +19,13 @@ export class TreningerComponent {
     {id: 3, hvor: 'Orkdal', info:'hello verden 3', img:'https://www.orkdal-il.no/assets/Album/g11-molde-cup-26-september-2015/IMG-8731.jpg'},
   ];
 //her er enda en variabel med en verdi av en komponent som brukes til å definere hva som skal åpnes i dialog boksen
-  constructor(private dialog: MatDialog, usernameElement: ElementRef) {
-    this.usernameElement = usernameElement
-   }
-
-  @ViewChild("username", {static: true}) usernameElement: ElementRef;
+  constructor(private dialog: MatDialog) {}
+//variabelene nedenfor er brukt til å lage et objekt som blir pushet inn i trening
+  id = 0;
+  hvor = "";
+  info = "";
+  img = "";
+  treningObject: {id: number, hvor: string, info: string, img: string} = {id: 0, hvor:"", info:"", img:""}
 
 openDialog() {
   this.dialog.open(TreningerInfoComponent, {
@@ -40,8 +34,12 @@ openDialog() {
 }
 
 //funksjon for å lage et objekt og pushe det inn i trening
-userLogin(Trening: trening) {
-  Trening.hvor = this.username
+userLogin() {
+  this.img = ((<HTMLInputElement>document.getElementById("username")).value);
+  this.treningObject = {id: this.id, hvor: this.hvor, info: this.info, img: this.img}
+  console.log(this.treningObject)
+  this.trening.push(this.treningObject)
+  console.log(this.trening)
 };
 
     

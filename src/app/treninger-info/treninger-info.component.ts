@@ -16,8 +16,11 @@ export class TreningerInfoComponent implements OnInit {
 //importerer listen med objekt fra treninger-component
   constructor(@Inject(MAT_DIALOG_DATA) public data: TreningerComponent["trening"]) { }
 
+  trening = this.data
+
   ngOnInit(): void {
     console.log(this.data)
+
   }
 
 }
