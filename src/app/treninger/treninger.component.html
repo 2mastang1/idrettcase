@@ -1,11 +1,12 @@
 <form>
-    <p>img address <input type="text" id="username" name="username" #username ></p>
-    <h1>{{username.value}}</h1>
+    <p>Hvor <input type="text" id="hvor"></p>
+    <p>Info <input type="text" id="info"></p>
+    <p>Img address <input type="text" id="image" name="image" #username ></p>
     <button type="button" (click)="userLogin()">add img</button>
 </form>
 <!--ngFor itererer over listen treninger og pakker objektene ut i variabelen trening.
     for hver iterasjon lager ngFor et mat-card med dataen lagret i trening variabelen-->
-<mat-card *ngFor="let treninger of trening">
+<mat-card *ngFor="let treninger of trening; let i=index">
     <div class="shade" (click)="openDialog()"></div>
     <img mat-card-image src={{treninger.img}}>
 </mat-card>
